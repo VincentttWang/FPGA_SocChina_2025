@@ -4,9 +4,17 @@
 
 ## 注意事项
 
-* **注意修改`tcl_scripts/build_hls/tcl`中的`"-I../../include/hw/vitis_fft/fixed"`，以导向实际的Vitis Library库**
+* **注意修改`tcl_scripts/build_hls/tcl`中的`"-I../../include/hw/vitis_fft/fixed"`，以导向实际的Vitis Library库文件**
 * **注意修改`notebooks/*.ipynb`文件中的`*.bit`位置，以及`audio_fft_demo.ipynb`文件中的音频文件（`.wav`）位置**
 * **导入`.bit`和`.hwh`文件之后，注意将其修改为同名**
+
+## 快速开始
+
+打开`pynq_z2_fft_port/build/build/`目录，其中的`fft_top.zip`文件即为需要的ip核
+
+## ip核接口
+
+详见INTERFACE_CN.md
 
 ## 项目结构
 

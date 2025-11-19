@@ -6,4 +6,4 @@
 .Xil
 
 #
-/build
+!build/build
