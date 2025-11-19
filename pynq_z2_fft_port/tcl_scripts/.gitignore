@@ -1,0 +1,9 @@
+# log, journey
+*.log
+*.jou
+
+#
+.Xil
+
+#
+/build
