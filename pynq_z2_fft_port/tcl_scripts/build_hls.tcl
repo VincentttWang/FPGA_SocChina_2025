@@ -5,7 +5,7 @@ set PART "xc7z020-clg484-1"
 open_project -reset $PROJ_DIR
 set_top $TOP_FUNC
 
-add_files src/fft_top.cpp -cflags "-I../../include/hw/vitis_fft/fixed"
+add_files src/fft_top.cpp -cflags "-I/home/alan/Learning/FPGA/fpgachina/Vitis_Libraries/dsp/L1/include/hw/vitis_fft/fixed"
 add_files src/fft_config.hpp
 
 open_solution "solution1"
