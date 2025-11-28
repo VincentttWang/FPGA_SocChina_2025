@@ -128,7 +128,7 @@ module audio (
   input sdata_i;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.AUDIO_CLK_10MHZ CLK" *)
   (* X_INTERFACE_MODE = "master CLK.AUDIO_CLK_10MHZ" *)
-  (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.AUDIO_CLK_10MHZ, FREQ_HZ 10000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_10MHz_clk_out1, INSERT_VIP 0" *)
+  (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.AUDIO_CLK_10MHZ, FREQ_HZ 5000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_10MHz_clk_out1, INSERT_VIP 0" *)
   output audio_clk_10MHz;
 
   // stub module has no contents

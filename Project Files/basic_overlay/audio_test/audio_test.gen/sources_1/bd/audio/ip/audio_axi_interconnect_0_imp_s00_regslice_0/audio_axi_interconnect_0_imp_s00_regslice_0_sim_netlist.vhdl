@@ -2,10 +2,10 @@
 -- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
--- Date        : Thu Nov 27 00:01:42 2025
+-- Date        : Thu Nov 27 00:01:41 2025
 -- Host        : alan-Yilong15-Series-GM5HG0A running 64-bit Ubuntu 24.04.3 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_interconnect_0_imp_s00_regslice_0/audio_axi_interconnect_0_imp_s00_regslice_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top audio_axi_interconnect_0_imp_s00_regslice_0 -prefix
+--               audio_axi_interconnect_0_imp_s00_regslice_0_ audio_axi_interconnect_0_imp_s00_regslice_0_sim_netlist.vhdl
 -- Design      : audio_axi_interconnect_0_imp_s00_regslice_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -28,8 +28,6 @@ entity audio_axi_interconnect_0_imp_s00_regslice_0_axi_register_slice_v2_1_33_ax
     s_ready_i_reg_0 : in STD_LOGIC;
     D : in STD_LOGIC_VECTOR ( 65 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of audio_axi_interconnect_0_imp_s00_regslice_0_axi_register_slice_v2_1_33_axic_register_slice : entity is "axi_register_slice_v2_1_33_axic_register_slice";
 end audio_axi_interconnect_0_imp_s00_regslice_0_axi_register_slice_v2_1_33_axic_register_slice;
 
 architecture STRUCTURE of audio_axi_interconnect_0_imp_s00_regslice_0_axi_register_slice_v2_1_33_axic_register_slice is
@@ -4709,8 +4707,6 @@ entity audio_axi_interconnect_0_imp_s00_regslice_0_axi_register_slice_v2_1_33_ax
   attribute G_AXI_WUSER_INDEX of audio_axi_interconnect_0_imp_s00_regslice_0_axi_register_slice_v2_1_33_axi_register_slice : entity is 49;
   attribute G_AXI_WUSER_WIDTH : integer;
   attribute G_AXI_WUSER_WIDTH of audio_axi_interconnect_0_imp_s00_regslice_0_axi_register_slice_v2_1_33_axi_register_slice : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of audio_axi_interconnect_0_imp_s00_regslice_0_axi_register_slice_v2_1_33_axi_register_slice : entity is "axi_register_slice_v2_1_33_axi_register_slice";
   attribute P_FORWARD : integer;
   attribute P_FORWARD of audio_axi_interconnect_0_imp_s00_regslice_0_axi_register_slice_v2_1_33_axi_register_slice : entity is 0;
   attribute P_RESPONSE : integer;

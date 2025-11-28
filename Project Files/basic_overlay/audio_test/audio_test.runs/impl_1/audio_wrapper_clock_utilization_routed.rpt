@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date         : Thu Nov 27 00:03:34 2025
+| Date         : Thu Nov 27 15:42:21 2025
 | Host         : alan-Yilong15-Series-GM5HG0A running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_clock_utilization -file audio_wrapper_clock_utilization_routed.rpt
 | Design       : audio_wrapper
@@ -51,8 +51,8 @@ Table of Contents
 | Global Id | Source Id | Driver Type/Pin | Constraint | Site           | Clock Region | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock                      | Driver Pin                                                            | Net                                                       |
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+----------------------------+-----------------------------------------------------------------------+-----------------------------------------------------------+
 | g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 4 |        1665 |               0 |       10.000 | clk_fpga_0                 | audio_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O | audio_i/processing_system7_0/inst/FCLK_CLK0               |
-| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y1  | n/a          |                 1 |           1 |               0 |       20.000 | clkfbout_audio_clk_wiz_0_0 | audio_i/clk_wiz_10MHz/inst/clkf_buf/O                                 | audio_i/clk_wiz_10MHz/inst/clkfbout_buf_audio_clk_wiz_0_0 |
-| g2        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |                 1 |           0 |               1 |      100.000 | clk_out1_audio_clk_wiz_0_0 | audio_i/clk_wiz_10MHz/inst/clkout1_buf/O                              | audio_i/clk_wiz_10MHz/inst/clk_out1                       |
+| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y1  | n/a          |                 1 |           1 |               0 |       50.000 | clkfbout_audio_clk_wiz_0_0 | audio_i/clk_wiz_10MHz/inst/clkf_buf/O                                 | audio_i/clk_wiz_10MHz/inst/clkfbout_buf_audio_clk_wiz_0_0 |
+| g2        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |                 1 |           0 |               1 |      200.000 | clk_out1_audio_clk_wiz_0_0 | audio_i/clk_wiz_10MHz/inst/clkout1_buf/O                              | audio_i/clk_wiz_10MHz/inst/clk_out1                       |
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+----------------------------+-----------------------------------------------------------------------+-----------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
@@ -65,8 +65,8 @@ Table of Contents
 | Source Id | Global Id | Driver Type/Pin     | Constraint | Site            | Clock Region | Clock Loads | Non-Clock Loads | Source Clock Period | Source Clock               | Driver Pin                                         | Net                                                      |
 +-----------+-----------+---------------------+------------+-----------------+--------------+-------------+-----------------+---------------------+----------------------------+----------------------------------------------------+----------------------------------------------------------+
 | src0      | g0        | PS7/FCLKCLK[0]      | PS7_X0Y0   | PS7_X0Y0        | X0Y2         |           1 |               0 |              10.000 | clk_fpga_0                 | audio_i/processing_system7_0/inst/PS7_i/FCLKCLK[0] | audio_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0] |
-| src1      | g1        | MMCME2_ADV/CLKFBOUT | None       | MMCME2_ADV_X1Y0 | X1Y0         |           1 |               0 |              20.000 | clkfbout_audio_clk_wiz_0_0 | audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBOUT  | audio_i/clk_wiz_10MHz/inst/clkfbout_audio_clk_wiz_0_0    |
-| src2      | g2        | MMCME2_ADV/CLKOUT0  | None       | MMCME2_ADV_X1Y0 | X1Y0         |           1 |               0 |             100.000 | clk_out1_audio_clk_wiz_0_0 | audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKOUT0   | audio_i/clk_wiz_10MHz/inst/clk_out1_audio_clk_wiz_0_0    |
+| src1      | g1        | MMCME2_ADV/CLKFBOUT | None       | MMCME2_ADV_X1Y0 | X1Y0         |           1 |               0 |              50.000 | clkfbout_audio_clk_wiz_0_0 | audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBOUT  | audio_i/clk_wiz_10MHz/inst/clkfbout_audio_clk_wiz_0_0    |
+| src2      | g2        | MMCME2_ADV/CLKOUT0  | None       | MMCME2_ADV_X1Y0 | X1Y0         |           1 |               0 |             200.000 | clk_out1_audio_clk_wiz_0_0 | audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKOUT0   | audio_i/clk_wiz_10MHz/inst/clk_out1_audio_clk_wiz_0_0    |
 +-----------+-----------+---------------------+------------+-----------------+--------------+-------------+-----------------+---------------------+----------------------------+----------------------------------------------------+----------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
@@ -132,7 +132,7 @@ All Modules
 +-----------+-----------------+-------------------+----------------------------+-------------+----------------+-------------+----------+----------------+----------+-----------------------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock                      | Period (ns) | Waveform (ns)  | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                       |
 +-----------+-----------------+-------------------+----------------------------+-------------+----------------+-------------+----------+----------------+----------+-----------------------------------------------------------+
-| g1        | BUFG/O          | n/a               | clkfbout_audio_clk_wiz_0_0 |      20.000 | {0.000 10.000} |           0 |        0 |              1 |        0 | audio_i/clk_wiz_10MHz/inst/clkfbout_buf_audio_clk_wiz_0_0 |
+| g1        | BUFG/O          | n/a               | clkfbout_audio_clk_wiz_0_0 |      50.000 | {0.000 25.000} |           0 |        0 |              1 |        0 | audio_i/clk_wiz_10MHz/inst/clkfbout_buf_audio_clk_wiz_0_0 |
 +-----------+-----------------+-------------------+----------------------------+-------------+----------------+-------------+----------+----------------+----------+-----------------------------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -152,11 +152,11 @@ All Modules
 8. Device Cell Placement Summary for Global Clock g2
 ----------------------------------------------------
 
-+-----------+-----------------+-------------------+----------------------------+-------------+----------------+-------------+----------+----------------+----------+-------------------------------------+
-| Global Id | Driver Type/Pin | Driver Region (D) | Clock                      | Period (ns) | Waveform (ns)  | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                 |
-+-----------+-----------------+-------------------+----------------------------+-------------+----------------+-------------+----------+----------------+----------+-------------------------------------+
-| g2        | BUFG/O          | n/a               | clk_out1_audio_clk_wiz_0_0 |     100.000 | {0.000 50.000} |           0 |        1 |              0 |        0 | audio_i/clk_wiz_10MHz/inst/clk_out1 |
-+-----------+-----------------+-------------------+----------------------------+-------------+----------------+-------------+----------+----------------+----------+-------------------------------------+
++-----------+-----------------+-------------------+----------------------------+-------------+-----------------+-------------+----------+----------------+----------+-------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock                      | Period (ns) | Waveform (ns)   | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                 |
++-----------+-----------------+-------------------+----------------------------+-------------+-----------------+-------------+----------+----------------+----------+-------------------------------------+
+| g2        | BUFG/O          | n/a               | clk_out1_audio_clk_wiz_0_0 |     200.000 | {0.000 100.000} |           0 |        1 |              0 |        0 | audio_i/clk_wiz_10MHz/inst/clk_out1 |
++-----------+-----------------+-------------------+----------------------------+-------------+-----------------+-------------+----------+----------------+----------+-------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
 *** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)

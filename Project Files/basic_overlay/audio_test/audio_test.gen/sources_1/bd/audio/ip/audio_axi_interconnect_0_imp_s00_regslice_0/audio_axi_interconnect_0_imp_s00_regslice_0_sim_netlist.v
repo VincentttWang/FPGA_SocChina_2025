@@ -2,10 +2,10 @@
 // Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-// Date        : Thu Nov 27 00:01:42 2025
+// Date        : Thu Nov 27 00:01:41 2025
 // Host        : alan-Yilong15-Series-GM5HG0A running 64-bit Ubuntu 24.04.3 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_interconnect_0_imp_s00_regslice_0/audio_axi_interconnect_0_imp_s00_regslice_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top audio_axi_interconnect_0_imp_s00_regslice_0 -prefix
+//               audio_axi_interconnect_0_imp_s00_regslice_0_ audio_axi_interconnect_0_imp_s00_regslice_0_sim_netlist.v
 // Design      : audio_axi_interconnect_0_imp_s00_regslice_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -503,8 +503,8 @@ endmodule
 (* G_AXI_WDATA_INDEX = "0" *) (* G_AXI_WDATA_WIDTH = "32" *) (* G_AXI_WID_INDEX = "37" *) 
 (* G_AXI_WID_WIDTH = "12" *) (* G_AXI_WLAST_INDEX = "36" *) (* G_AXI_WLAST_WIDTH = "1" *) 
 (* G_AXI_WPAYLOAD_WIDTH = "49" *) (* G_AXI_WSTRB_INDEX = "32" *) (* G_AXI_WSTRB_WIDTH = "4" *) 
-(* G_AXI_WUSER_INDEX = "49" *) (* G_AXI_WUSER_WIDTH = "0" *) (* ORIG_REF_NAME = "axi_register_slice_v2_1_33_axi_register_slice" *) 
-(* P_FORWARD = "0" *) (* P_RESPONSE = "1" *) 
+(* G_AXI_WUSER_INDEX = "49" *) (* G_AXI_WUSER_WIDTH = "0" *) (* P_FORWARD = "0" *) 
+(* P_RESPONSE = "1" *) 
 module audio_axi_interconnect_0_imp_s00_regslice_0_axi_register_slice_v2_1_33_axi_register_slice
    (aclk,
     aclk2x,
@@ -853,7 +853,6 @@ module audio_axi_interconnect_0_imp_s00_regslice_0_axi_register_slice_v2_1_33_ax
         .s_ready_i_reg_0(s_axi_wready));
 endmodule
 
-(* ORIG_REF_NAME = "axi_register_slice_v2_1_33_axic_register_slice" *) 
 module audio_axi_interconnect_0_imp_s00_regslice_0_axi_register_slice_v2_1_33_axic_register_slice
    (m_axi_arvalid,
     s_axi_arready,

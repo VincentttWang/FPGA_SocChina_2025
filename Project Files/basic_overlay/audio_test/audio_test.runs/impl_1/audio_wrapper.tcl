@@ -1,5 +1,5 @@
 namespace eval ::optrace {
-  variable script "/home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.runs/impl_1/audio_wrapper.tcl"
+  variable script "/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.runs/impl_1/audio_wrapper.tcl"
   variable category "vivado_impl"
 }
 
@@ -99,17 +99,199 @@ OPTRACE "impl_1" END { }
 
 
 OPTRACE "impl_1" START { ROLLUP_1 }
+OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
+start_step init_design
+set ACTIVE_STEP init_design
+set rc [catch {
+  create_msg_db init_design.pb
+  set_param chipscope.maxJobs 4
+  set_param tcl.statsThreshold 360
+  set_param runs.launchOptions { -jobs 16  }
+OPTRACE "create in-memory project" START { }
+  create_project -in_memory -part xc7z020clg400-1
+  set_property design_mode GateLvl [current_fileset]
+  set_param project.singleFileAddWarning.threshold 0
+OPTRACE "create in-memory project" END { }
+OPTRACE "set parameters" START { }
+  set_property webtalk.parent_dir {/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.cache/wt} [current_project]
+  set_property parent.project_path {/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.xpr} [current_project]
+  set_property ip_repo_paths {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_codec_ctrl_v1.0}} [current_project]
+  update_ip_catalog
+  set_property ip_output_repo {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.cache/ip}} [current_project]
+  set_property ip_cache_permissions {read write} [current_project]
+  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+OPTRACE "set parameters" END { }
+OPTRACE "add files" START { }
+  add_files -quiet {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.runs/synth_1/audio_wrapper.dcp}}
+  set_msg_config -source 4 -id {BD 41-1661} -limit 0
+  set_param project.isImplRun true
+  add_files {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.srcs/sources_1/bd/audio/audio.bd}}
+  set_param project.isImplRun false
+OPTRACE "read constraints: implementation" START { }
+  read_xdc {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/vivado/constraints/base.xdc}}
+OPTRACE "read constraints: implementation" END { }
+OPTRACE "read constraints: implementation_pre" START { }
+OPTRACE "read constraints: implementation_pre" END { }
+OPTRACE "add files" END { }
+OPTRACE "link_design" START { }
+  set_param project.isImplRun true
+  link_design -top audio_wrapper -part xc7z020clg400-1 
+OPTRACE "link_design" END { }
+  set_param project.isImplRun false
+OPTRACE "gray box cells" START { }
+OPTRACE "gray box cells" END { }
+OPTRACE "init_design_reports" START { REPORT }
+OPTRACE "init_design_reports" END { }
+OPTRACE "init_design_write_hwdef" START { }
+OPTRACE "init_design_write_hwdef" END { }
+  close_msg_db -file init_design.pb
+} RESULT]
+if {$rc} {
+  step_failed init_design
+  return -code error $RESULT
+} else {
+  end_step init_design
+  unset ACTIVE_STEP 
+}
+
+OPTRACE "Phase: Init Design" END { }
+OPTRACE "Phase: Opt Design" START { ROLLUP_AUTO }
+start_step opt_design
+set ACTIVE_STEP opt_design
+set rc [catch {
+  create_msg_db opt_design.pb
+OPTRACE "read constraints: opt_design" START { }
+OPTRACE "read constraints: opt_design" END { }
+OPTRACE "opt_design" START { }
+  opt_design 
+OPTRACE "opt_design" END { }
+OPTRACE "read constraints: opt_design_post" START { }
+OPTRACE "read constraints: opt_design_post" END { }
+OPTRACE "opt_design reports" START { REPORT }
+  set_param project.isImplRun true
+  generate_parallel_reports -reports { "report_drc -file audio_wrapper_drc_opted.rpt -pb audio_wrapper_drc_opted.pb -rpx audio_wrapper_drc_opted.rpx"  }
+  set_param project.isImplRun false
+OPTRACE "opt_design reports" END { }
+OPTRACE "Opt Design: write_checkpoint" START { CHECKPOINT }
+  write_checkpoint -force audio_wrapper_opt.dcp
+OPTRACE "Opt Design: write_checkpoint" END { }
+  close_msg_db -file opt_design.pb
+} RESULT]
+if {$rc} {
+  step_failed opt_design
+  return -code error $RESULT
+} else {
+  end_step opt_design
+  unset ACTIVE_STEP 
+}
+
+OPTRACE "Phase: Opt Design" END { }
+OPTRACE "Phase: Place Design" START { ROLLUP_AUTO }
+start_step place_design
+set ACTIVE_STEP place_design
+set rc [catch {
+  create_msg_db place_design.pb
+OPTRACE "read constraints: place_design" START { }
+OPTRACE "read constraints: place_design" END { }
+  if { [llength [get_debug_cores -quiet] ] > 0 }  { 
+OPTRACE "implement_debug_core" START { }
+    implement_debug_core 
+OPTRACE "implement_debug_core" END { }
+  } 
+OPTRACE "place_design" START { }
+  place_design 
+OPTRACE "place_design" END { }
+OPTRACE "read constraints: place_design_post" START { }
+OPTRACE "read constraints: place_design_post" END { }
+OPTRACE "place_design reports" START { REPORT }
+  set_param project.isImplRun true
+  generate_parallel_reports -reports { "report_io -file audio_wrapper_io_placed.rpt" "report_utilization -file audio_wrapper_utilization_placed.rpt -pb audio_wrapper_utilization_placed.pb" "report_control_sets -verbose -file audio_wrapper_control_sets_placed.rpt"  }
+  set_param project.isImplRun false
+OPTRACE "place_design reports" END { }
+OPTRACE "Place Design: write_checkpoint" START { CHECKPOINT }
+  write_checkpoint -force audio_wrapper_placed.dcp
+OPTRACE "Place Design: write_checkpoint" END { }
+  close_msg_db -file place_design.pb
+} RESULT]
+if {$rc} {
+  step_failed place_design
+  return -code error $RESULT
+} else {
+  end_step place_design
+  unset ACTIVE_STEP 
+}
+
+OPTRACE "Phase: Place Design" END { }
+OPTRACE "Phase: Physical Opt Design" START { ROLLUP_AUTO }
+start_step phys_opt_design
+set ACTIVE_STEP phys_opt_design
+set rc [catch {
+  create_msg_db phys_opt_design.pb
+OPTRACE "read constraints: phys_opt_design" START { }
+OPTRACE "read constraints: phys_opt_design" END { }
+OPTRACE "phys_opt_design" START { }
+  phys_opt_design 
+OPTRACE "phys_opt_design" END { }
+OPTRACE "read constraints: phys_opt_design_post" START { }
+OPTRACE "read constraints: phys_opt_design_post" END { }
+OPTRACE "phys_opt_design report" START { REPORT }
+OPTRACE "phys_opt_design report" END { }
+OPTRACE "Post-Place Phys Opt Design: write_checkpoint" START { CHECKPOINT }
+  write_checkpoint -force audio_wrapper_physopt.dcp
+OPTRACE "Post-Place Phys Opt Design: write_checkpoint" END { }
+  close_msg_db -file phys_opt_design.pb
+} RESULT]
+if {$rc} {
+  step_failed phys_opt_design
+  return -code error $RESULT
+} else {
+  end_step phys_opt_design
+  unset ACTIVE_STEP 
+}
+
+OPTRACE "Phase: Physical Opt Design" END { }
+OPTRACE "Phase: Route Design" START { ROLLUP_AUTO }
+start_step route_design
+set ACTIVE_STEP route_design
+set rc [catch {
+  create_msg_db route_design.pb
+OPTRACE "read constraints: route_design" START { }
+OPTRACE "read constraints: route_design" END { }
+OPTRACE "route_design" START { }
+  route_design 
+OPTRACE "route_design" END { }
+OPTRACE "read constraints: route_design_post" START { }
+OPTRACE "read constraints: route_design_post" END { }
+OPTRACE "route_design reports" START { REPORT }
+  set_param project.isImplRun true
+  generate_parallel_reports -reports { "report_drc -file audio_wrapper_drc_routed.rpt -pb audio_wrapper_drc_routed.pb -rpx audio_wrapper_drc_routed.rpx" "report_methodology -file audio_wrapper_methodology_drc_routed.rpt -pb audio_wrapper_methodology_drc_routed.pb -rpx audio_wrapper_methodology_drc_routed.rpx" "report_power -file audio_wrapper_power_routed.rpt -pb audio_wrapper_power_summary_routed.pb -rpx audio_wrapper_power_routed.rpx" "report_route_status -file audio_wrapper_route_status.rpt -pb audio_wrapper_route_status.pb" "report_timing_summary -max_paths 10 -report_unconstrained -file audio_wrapper_timing_summary_routed.rpt -pb audio_wrapper_timing_summary_routed.pb -rpx audio_wrapper_timing_summary_routed.rpx -warn_on_violation " "report_incremental_reuse -file audio_wrapper_incremental_reuse_routed.rpt" "report_clock_utilization -file audio_wrapper_clock_utilization_routed.rpt" "report_bus_skew -warn_on_violation -file audio_wrapper_bus_skew_routed.rpt -pb audio_wrapper_bus_skew_routed.pb -rpx audio_wrapper_bus_skew_routed.rpx"  }
+  set_param project.isImplRun false
+OPTRACE "route_design reports" END { }
+OPTRACE "Route Design: write_checkpoint" START { CHECKPOINT }
+  write_checkpoint -force audio_wrapper_routed.dcp
+OPTRACE "Route Design: write_checkpoint" END { }
+OPTRACE "route_design misc" START { }
+  close_msg_db -file route_design.pb
+} RESULT]
+if {$rc} {
+OPTRACE "route_design write_checkpoint" START { CHECKPOINT }
+OPTRACE "route_design write_checkpoint" END { }
+  write_checkpoint -force audio_wrapper_routed_error.dcp
+  step_failed route_design
+  return -code error $RESULT
+} else {
+  end_step route_design
+  unset ACTIVE_STEP 
+}
+
+OPTRACE "route_design misc" END { }
+OPTRACE "Phase: Route Design" END { }
 OPTRACE "Phase: Write Bitstream" START { ROLLUP_AUTO }
 OPTRACE "write_bitstream setup" START { }
 start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  set_param chipscope.maxJobs 4
-  set_param runs.launchOptions { -jobs 16  }
-  open_checkpoint audio_wrapper_routed.dcp
-  set_property webtalk.parent_dir /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.cache/wt [current_project]
-set_property TOP audio_wrapper [current_fileset]
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]

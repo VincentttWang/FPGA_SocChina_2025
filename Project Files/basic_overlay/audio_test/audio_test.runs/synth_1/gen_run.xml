@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1764172931" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/audio_wrapper.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1764229258" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/audio_wrapper.dcp">
   <File Type="VDS-TIMINGSUMMARY" Name="audio_wrapper_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="audio_wrapper.dcp"/>
   <File Type="RDS-UTIL-PB" Name="audio_wrapper_utilization_synth.pb"/>
@@ -58,20 +58,16 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="audio_axi_gpio_0_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="audio_audio_codec_ctrl_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="audio_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="audio_proc_sys_reset_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="audio_axi_gpio_0_2"/>
-  <BlockFileSet Type="BlockSrcs" Name="audio_axi_gpio_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="audio_clk_wiz_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="audio_axi_interconnect_0_upgraded_ipi_imp_xbar_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="audio_axi_interconnect_0_imp_auto_pc_0"/>
   <BlockFileSet Type="BlockSrcs" Name="audio_axi_gpio_0_3"/>
-  <BlockFileSet Type="BlockSrcs" Name="audio_axi_interconnect_0_imp_s00_regslice_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="audio_axi_gpio_0_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="audio_axi_gpio_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="audio_axi_gpio_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="audio_axi_interconnect_0_upgraded_ipi_imp_xbar_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="audio_clk_wiz_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="audio_audio_codec_ctrl_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="audio_proc_sys_reset_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="audio_processing_system7_0_0"/>
 </GenRun>

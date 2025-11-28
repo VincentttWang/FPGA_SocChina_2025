@@ -21,7 +21,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.runs/synth_1'
+HD_PWD='/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

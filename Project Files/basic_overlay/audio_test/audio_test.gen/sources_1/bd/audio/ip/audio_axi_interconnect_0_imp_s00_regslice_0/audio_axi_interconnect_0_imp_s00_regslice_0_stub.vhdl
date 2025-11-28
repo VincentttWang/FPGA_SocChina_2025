@@ -4,8 +4,8 @@
 -- Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
 -- Date        : Thu Nov 27 00:01:41 2025
 -- Host        : alan-Yilong15-Series-GM5HG0A running 64-bit Ubuntu 24.04.3 LTS
--- Command     : write_vhdl -force -mode synth_stub
---               /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_interconnect_0_imp_s00_regslice_0/audio_axi_interconnect_0_imp_s00_regslice_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top audio_axi_interconnect_0_imp_s00_regslice_0 -prefix
+--               audio_axi_interconnect_0_imp_s00_regslice_0_ audio_axi_interconnect_0_imp_s00_regslice_0_stub.vhdl
 -- Design      : audio_axi_interconnect_0_imp_s00_regslice_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg400-1

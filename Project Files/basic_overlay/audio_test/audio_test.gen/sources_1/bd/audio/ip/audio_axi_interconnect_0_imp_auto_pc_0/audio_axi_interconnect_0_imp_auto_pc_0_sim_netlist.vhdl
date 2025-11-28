@@ -4,8 +4,8 @@
 -- Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
 -- Date        : Thu Nov 27 00:01:50 2025
 -- Host        : alan-Yilong15-Series-GM5HG0A running 64-bit Ubuntu 24.04.3 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_interconnect_0_imp_auto_pc_0/audio_axi_interconnect_0_imp_auto_pc_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top audio_axi_interconnect_0_imp_auto_pc_0 -prefix
+--               audio_axi_interconnect_0_imp_auto_pc_0_ audio_axi_interconnect_0_imp_auto_pc_0_sim_netlist.vhdl
 -- Design      : audio_axi_interconnect_0_imp_auto_pc_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -35,8 +35,6 @@ entity audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s
     axaddr_incr : in STD_LOGIC_VECTOR ( 11 downto 0 );
     \axlen_cnt_reg[5]_1\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_incr_cmd : entity is "axi_protocol_converter_v2_1_33_b2s_incr_cmd";
 end audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_incr_cmd;
 
 architecture STRUCTURE of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_incr_cmd is
@@ -1368,8 +1366,6 @@ entity audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s
     m_valid_i_reg_0 : in STD_LOGIC;
     aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_rd_cmd_fsm : entity is "axi_protocol_converter_v2_1_33_b2s_rd_cmd_fsm";
 end audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_rd_cmd_fsm;
 
 architecture STRUCTURE of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_rd_cmd_fsm is
@@ -1975,8 +1971,6 @@ entity audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s
     aclk : in STD_LOGIC;
     shandshake_r : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_simple_fifo : entity is "axi_protocol_converter_v2_1_33_b2s_simple_fifo";
 end audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_simple_fifo;
 
 architecture STRUCTURE of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_simple_fifo is
@@ -3746,8 +3740,6 @@ entity audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s
     cnt_read : in STD_LOGIC_VECTOR ( 1 downto 0 );
     aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_wr_cmd_fsm : entity is "axi_protocol_converter_v2_1_33_b2s_wr_cmd_fsm";
 end audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_wr_cmd_fsm;
 
 architecture STRUCTURE of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_wr_cmd_fsm is
@@ -4432,8 +4424,6 @@ entity audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s
     \wrap_boundary_axaddr_r_reg[6]_0\ : in STD_LOGIC_VECTOR ( 6 downto 0 );
     \axaddr_wrap_reg[11]_1\ : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_wrap_cmd : entity is "axi_protocol_converter_v2_1_33_b2s_wrap_cmd";
 end audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_wrap_cmd;
 
 architecture STRUCTURE of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_wrap_cmd is
@@ -5615,8 +5605,6 @@ entity audio_axi_interconnect_0_imp_auto_pc_0_axi_register_slice_v2_1_33_axic_re
     sel_first_1 : in STD_LOGIC;
     \m_payload_i_reg[0]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of audio_axi_interconnect_0_imp_auto_pc_0_axi_register_slice_v2_1_33_axic_register_slice : entity is "axi_register_slice_v2_1_33_axic_register_slice";
 end audio_axi_interconnect_0_imp_auto_pc_0_axi_register_slice_v2_1_33_axic_register_slice;
 
 architecture STRUCTURE of audio_axi_interconnect_0_imp_auto_pc_0_axi_register_slice_v2_1_33_axic_register_slice is
@@ -11996,8 +11984,6 @@ entity audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s
     \in\ : in STD_LOGIC_VECTOR ( 15 downto 0 );
     m_axi_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_b_channel : entity is "axi_protocol_converter_v2_1_33_b2s_b_channel";
 end audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_b_channel;
 
 architecture STRUCTURE of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_b_channel is
@@ -12340,8 +12326,6 @@ entity audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s
     \wrap_boundary_axaddr_r_reg[6]\ : in STD_LOGIC_VECTOR ( 6 downto 0 );
     \axaddr_wrap_reg[11]_0\ : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_cmd_translator : entity is "axi_protocol_converter_v2_1_33_b2s_cmd_translator";
 end audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_cmd_translator;
 
 architecture STRUCTURE of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_cmd_translator is
@@ -12625,8 +12609,6 @@ entity audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s
     D : in STD_LOGIC_VECTOR ( 11 downto 0 );
     areset_d1 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_r_channel : entity is "axi_protocol_converter_v2_1_33_b2s_r_channel";
 end audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_r_channel;
 
 architecture STRUCTURE of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_r_channel is
@@ -12870,8 +12852,6 @@ entity audio_axi_interconnect_0_imp_auto_pc_0_axi_register_slice_v2_1_33_axi_reg
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     \m_payload_i_reg[0]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of audio_axi_interconnect_0_imp_auto_pc_0_axi_register_slice_v2_1_33_axi_register_slice : entity is "axi_register_slice_v2_1_33_axi_register_slice";
 end audio_axi_interconnect_0_imp_auto_pc_0_axi_register_slice_v2_1_33_axi_register_slice;
 
 architecture STRUCTURE of audio_axi_interconnect_0_imp_auto_pc_0_axi_register_slice_v2_1_33_axi_register_slice is
@@ -13031,8 +13011,6 @@ entity audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s
     \axaddr_incr_reg[3]_0\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
     D : in STD_LOGIC_VECTOR ( 6 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_ar_channel : entity is "axi_protocol_converter_v2_1_33_b2s_ar_channel";
 end audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_ar_channel;
 
 architecture STRUCTURE of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_ar_channel is
@@ -13399,8 +13377,6 @@ entity audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s
     axaddr_incr : in STD_LOGIC_VECTOR ( 11 downto 0 );
     D : in STD_LOGIC_VECTOR ( 6 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_aw_channel : entity is "axi_protocol_converter_v2_1_33_b2s_aw_channel";
 end audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_aw_channel;
 
 architecture STRUCTURE of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s_aw_channel is
@@ -13743,8 +13719,6 @@ entity audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s
     s_axi_arvalid : in STD_LOGIC;
     aresetn : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s : entity is "axi_protocol_converter_v2_1_33_b2s";
 end audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s;
 
 architecture STRUCTURE of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_b2s is
@@ -14419,8 +14393,6 @@ entity audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_axi
   attribute C_TRANSLATION_MODE of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_axi_protocol_converter : entity is 2;
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_axi_protocol_converter : entity is "yes";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_axi_protocol_converter : entity is "axi_protocol_converter_v2_1_33_axi_protocol_converter";
   attribute P_AXI3 : integer;
   attribute P_AXI3 of audio_axi_interconnect_0_imp_auto_pc_0_axi_protocol_converter_v2_1_33_axi_protocol_converter : entity is 1;
   attribute P_AXI4 : integer;

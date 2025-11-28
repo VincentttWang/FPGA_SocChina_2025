@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date         : Thu Nov 27 00:03:34 2025
+| Date         : Thu Nov 27 15:42:20 2025
 | Host         : alan-Yilong15-Series-GM5HG0A running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_timing_summary -max_paths 10 -report_unconstrained -file audio_wrapper_timing_summary_routed.rpt -pb audio_wrapper_timing_summary_routed.pb -rpx audio_wrapper_timing_summary_routed.rpx -warn_on_violation
 | Design       : audio_wrapper
@@ -158,8 +158,8 @@ All user specified timing constraints are met.
 Clock                               Waveform(ns)         Period(ns)      Frequency(MHz)
 -----                               ------------         ----------      --------------
 audio_i/clk_wiz_10MHz/inst/clk_in1  {0.000 5.000}        10.000          100.000         
-  clk_out1_audio_clk_wiz_0_0        {0.000 50.000}       100.000         10.000          
-  clkfbout_audio_clk_wiz_0_0        {0.000 10.000}       20.000          50.000          
+  clk_out1_audio_clk_wiz_0_0        {0.000 100.000}      200.000         5.000           
+  clkfbout_audio_clk_wiz_0_0        {0.000 25.000}       50.000          20.000          
 clk_fpga_0                          {0.000 5.000}        10.000          100.000         
 
 
@@ -171,8 +171,8 @@ clk_fpga_0                          {0.000 5.000}        10.000          100.000
 Clock                                   WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----                                   -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
 audio_i/clk_wiz_10MHz/inst/clk_in1                                                                                                                                                    3.000        0.000                       0                     1  
-  clk_out1_audio_clk_wiz_0_0                                                                                                                                                         97.845        0.000                       0                     2  
-  clkfbout_audio_clk_wiz_0_0                                                                                                                                                         17.845        0.000                       0                     3  
+  clk_out1_audio_clk_wiz_0_0                                                                                                                                                         13.360        0.000                       0                     2  
+  clkfbout_audio_clk_wiz_0_0                                                                                                                                                         47.845        0.000                       0                     3  
 clk_fpga_0                                3.292        0.000                      0                 3542        0.039        0.000                      0                 3542        4.020        0.000                       0                  1664  
 
 
@@ -256,21 +256,21 @@ From Clock:  clk_out1_audio_clk_wiz_0_0
 
 Setup :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
 Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
-PW    :            0  Failing Endpoints,  Worst Slack       97.845ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack       13.360ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Pulse Width Checks
 --------------------------------------------------------------------------------------
 Clock Name:         clk_out1_audio_clk_wiz_0_0
-Waveform(ns):       { 0.000 50.000 }
-Period(ns):         100.000
+Waveform(ns):       { 0.000 100.000 }
+Period(ns):         200.000
 Sources:            { audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKOUT0 }
 
 Check Type  Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location         Pin
-Min Period  n/a     BUFG/I              n/a            2.155         100.000     97.845     BUFGCTRL_X0Y0    audio_i/clk_wiz_10MHz/inst/clkout1_buf/I
-Min Period  n/a     MMCME2_ADV/CLKOUT0  n/a            1.249         100.000     98.751     MMCME2_ADV_X1Y0  audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKOUT0
-Max Period  n/a     MMCME2_ADV/CLKOUT0  n/a            213.360       100.000     113.360    MMCME2_ADV_X1Y0  audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKOUT0
+Min Period  n/a     BUFG/I              n/a            2.155         200.000     197.845    BUFGCTRL_X0Y0    audio_i/clk_wiz_10MHz/inst/clkout1_buf/I
+Min Period  n/a     MMCME2_ADV/CLKOUT0  n/a            1.249         200.000     198.751    MMCME2_ADV_X1Y0  audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKOUT0
+Max Period  n/a     MMCME2_ADV/CLKOUT0  n/a            213.360       200.000     13.360     MMCME2_ADV_X1Y0  audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKOUT0
 
 
 
@@ -280,23 +280,23 @@ From Clock:  clkfbout_audio_clk_wiz_0_0
 
 Setup :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
 Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
-PW    :            0  Failing Endpoints,  Worst Slack       17.845ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack       47.845ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Pulse Width Checks
 --------------------------------------------------------------------------------------
 Clock Name:         clkfbout_audio_clk_wiz_0_0
-Waveform(ns):       { 0.000 10.000 }
-Period(ns):         20.000
+Waveform(ns):       { 0.000 25.000 }
+Period(ns):         50.000
 Sources:            { audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBOUT }
 
 Check Type  Corner  Lib Pin              Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location         Pin
-Min Period  n/a     BUFG/I               n/a            2.155         20.000      17.845     BUFGCTRL_X0Y1    audio_i/clk_wiz_10MHz/inst/clkf_buf/I
-Min Period  n/a     MMCME2_ADV/CLKFBOUT  n/a            1.249         20.000      18.751     MMCME2_ADV_X1Y0  audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBOUT
-Min Period  n/a     MMCME2_ADV/CLKFBIN   n/a            1.249         20.000      18.751     MMCME2_ADV_X1Y0  audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBIN
-Max Period  n/a     MMCME2_ADV/CLKFBIN   n/a            100.000       20.000      80.000     MMCME2_ADV_X1Y0  audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBIN
-Max Period  n/a     MMCME2_ADV/CLKFBOUT  n/a            213.360       20.000      193.360    MMCME2_ADV_X1Y0  audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBOUT
+Min Period  n/a     BUFG/I               n/a            2.155         50.000      47.845     BUFGCTRL_X0Y1    audio_i/clk_wiz_10MHz/inst/clkf_buf/I
+Min Period  n/a     MMCME2_ADV/CLKFBOUT  n/a            1.249         50.000      48.751     MMCME2_ADV_X1Y0  audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBOUT
+Min Period  n/a     MMCME2_ADV/CLKFBIN   n/a            1.249         50.000      48.751     MMCME2_ADV_X1Y0  audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBIN
+Max Period  n/a     MMCME2_ADV/CLKFBIN   n/a            100.000       50.000      50.000     MMCME2_ADV_X1Y0  audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBIN
+Max Period  n/a     MMCME2_ADV/CLKFBOUT  n/a            213.360       50.000      163.360    MMCME2_ADV_X1Y0  audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBOUT
 
 
 
@@ -2641,32 +2641,32 @@ Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
   Source:                 audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKOUT0
-                            (clock source 'clk_out1_audio_clk_wiz_0_0'  {rise@0.000ns fall@50.000ns period=100.000ns})
+                            (clock source 'clk_out1_audio_clk_wiz_0_0'  {rise@0.000ns fall@100.000ns period=200.000ns})
   Destination:            audio_clk_10MHz
                             (output port)
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
   Data Path Delay:        8.638ns  (logic 3.614ns (41.832%)  route 5.025ns (58.168%))
   Logic Levels:           2  (BUFG=1 OBUF=1)
-  Clock Uncertainty:      0.281ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+  Clock Uncertainty:      0.664ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.050ns
-    Discrete Jitter          (DJ):    0.290ns
-    Phase Error              (PE):    0.134ns
+    Discrete Jitter          (DJ):    0.631ns
+    Phase Error              (PE):    0.347ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
                          (clock clk_out1_audio_clk_wiz_0_0 fall edge)
-                                                     50.000    50.000 f  
-    BUFGCTRL_X0Y16       BUFG                         0.000    50.000 f  audio_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=1665, routed)        1.806    51.806    audio_i/clk_wiz_10MHz/inst/clk_in1
+                                                    100.000   100.000 f  
+    BUFGCTRL_X0Y16       BUFG                         0.000   100.000 f  audio_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=1665, routed)        1.806   101.806    audio_i/clk_wiz_10MHz/inst/clk_in1
   -------------------------------------------------------------------    -------------------
     MMCME2_ADV_X1Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
-                                                     -3.793    48.013 f  audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKOUT0
-                         net (fo=1, routed)           1.889    49.902    audio_i/clk_wiz_10MHz/inst/clk_out1_audio_clk_wiz_0_0
-    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101    50.003 f  audio_i/clk_wiz_10MHz/inst/clkout1_buf/O
-                         net (fo=1, routed)           3.136    53.139    audio_clk_10MHz_OBUF
-    U5                   OBUF (Prop_obuf_I_O)         3.513    56.651 f  audio_clk_10MHz_OBUF_inst/O
-                         net (fo=0)                   0.000    56.651    audio_clk_10MHz
+                                                     -3.793    98.013 f  audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.889    99.902    audio_i/clk_wiz_10MHz/inst/clk_out1_audio_clk_wiz_0_0
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101   100.003 f  audio_i/clk_wiz_10MHz/inst/clkout1_buf/O
+                         net (fo=1, routed)           3.136   103.139    audio_clk_10MHz_OBUF
+    U5                   OBUF (Prop_obuf_I_O)         3.513   106.651 f  audio_clk_10MHz_OBUF_inst/O
+                         net (fo=0)                   0.000   106.651    audio_clk_10MHz
     U5                                                                f  audio_clk_10MHz (OUT)
   -------------------------------------------------------------------    -------------------
 
@@ -2678,17 +2678,17 @@ Min Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
   Source:                 audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKOUT0
-                            (clock source 'clk_out1_audio_clk_wiz_0_0'  {rise@0.000ns fall@50.000ns period=100.000ns})
+                            (clock source 'clk_out1_audio_clk_wiz_0_0'  {rise@0.000ns fall@100.000ns period=200.000ns})
   Destination:            audio_clk_10MHz
                             (output port)
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
   Data Path Delay:        2.544ns  (logic 1.240ns (48.729%)  route 1.304ns (51.271%))
   Logic Levels:           2  (BUFG=1 OBUF=1)
-  Clock Uncertainty:      0.281ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+  Clock Uncertainty:      0.664ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.050ns
-    Discrete Jitter          (DJ):    0.290ns
-    Phase Error              (PE):    0.134ns
+    Discrete Jitter          (DJ):    0.631ns
+    Phase Error              (PE):    0.347ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -2725,29 +2725,29 @@ Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
   Source:                 audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBOUT
-                            (clock source 'clkfbout_audio_clk_wiz_0_0'  {rise@0.000ns fall@10.000ns period=20.000ns})
+                            (clock source 'clkfbout_audio_clk_wiz_0_0'  {rise@0.000ns fall@25.000ns period=50.000ns})
   Destination:            audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBIN
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
   Data Path Delay:        3.793ns  (logic 0.101ns (2.663%)  route 3.692ns (97.337%))
   Logic Levels:           1  (BUFG=1)
-  Clock Uncertainty:      0.201ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+  Clock Uncertainty:      0.480ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.050ns
-    Discrete Jitter          (DJ):    0.125ns
-    Phase Error              (PE):    0.134ns
+    Discrete Jitter          (DJ):    0.261ns
+    Phase Error              (PE):    0.347ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
                          (clock clkfbout_audio_clk_wiz_0_0 fall edge)
-                                                     10.000    10.000 f  
-    BUFGCTRL_X0Y16       BUFG                         0.000    10.000 f  audio_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=1665, routed)        1.806    11.806    audio_i/clk_wiz_10MHz/inst/clk_in1
+                                                     25.000    25.000 f  
+    BUFGCTRL_X0Y16       BUFG                         0.000    25.000 f  audio_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=1665, routed)        1.806    26.806    audio_i/clk_wiz_10MHz/inst/clk_in1
   -------------------------------------------------------------------    -------------------
     MMCME2_ADV_X1Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
-                                                     -3.793     8.013 f  audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBOUT
-                         net (fo=1, routed)           1.889     9.902    audio_i/clk_wiz_10MHz/inst/clkfbout_audio_clk_wiz_0_0
-    BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.101    10.003 f  audio_i/clk_wiz_10MHz/inst/clkf_buf/O
-                         net (fo=1, routed)           1.803    11.806    audio_i/clk_wiz_10MHz/inst/clkfbout_buf_audio_clk_wiz_0_0
+                                                     -3.793    23.013 f  audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBOUT
+                         net (fo=1, routed)           1.889    24.902    audio_i/clk_wiz_10MHz/inst/clkfbout_audio_clk_wiz_0_0
+    BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.101    25.003 f  audio_i/clk_wiz_10MHz/inst/clkf_buf/O
+                         net (fo=1, routed)           1.803    26.806    audio_i/clk_wiz_10MHz/inst/clkfbout_buf_audio_clk_wiz_0_0
     MMCME2_ADV_X1Y0      MMCME2_ADV                                   f  audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBIN
   -------------------------------------------------------------------    -------------------
 
@@ -2759,16 +2759,16 @@ Min Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
   Source:                 audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBOUT
-                            (clock source 'clkfbout_audio_clk_wiz_0_0'  {rise@0.000ns fall@10.000ns period=20.000ns})
+                            (clock source 'clkfbout_audio_clk_wiz_0_0'  {rise@0.000ns fall@25.000ns period=50.000ns})
   Destination:            audio_i/clk_wiz_10MHz/inst/mmcm_adv_inst/CLKFBIN
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
   Data Path Delay:        1.150ns  (logic 0.026ns (2.262%)  route 1.123ns (97.738%))
   Logic Levels:           1  (BUFG=1)
-  Clock Uncertainty:      0.201ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+  Clock Uncertainty:      0.480ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.050ns
-    Discrete Jitter          (DJ):    0.125ns
-    Phase Error              (PE):    0.134ns
+    Discrete Jitter          (DJ):    0.261ns
+    Phase Error              (PE):    0.347ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------

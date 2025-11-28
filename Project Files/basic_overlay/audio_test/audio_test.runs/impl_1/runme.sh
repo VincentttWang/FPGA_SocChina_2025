@@ -21,7 +21,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.runs/impl_1'
+HD_PWD='/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -38,7 +38,7 @@ EAStep()
 }
 
 # pre-commands:
-/bin/touch .write_bitstream.begin.rst
+/bin/touch .init_design.begin.rst
 EAStep vivado -log audio_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source audio_wrapper.tcl -notrace
 
 

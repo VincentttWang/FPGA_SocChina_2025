@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.runs/synth_1/audio_wrapper.tcl"
+  variable script "/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.runs/synth_1/audio_wrapper.tcl"
   variable category "vivado_synth"
 }
 
@@ -56,7 +56,7 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
+set_param tcl.statsThreshold 360
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg400-1
 
@@ -64,43 +64,43 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.cache/wt [current_project]
-set_property parent.project_path /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.xpr [current_project]
+set_property webtalk.parent_dir {/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.cache/wt} [current_project]
+set_property parent.project_path {/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.xpr} [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_repo_paths /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_codec_ctrl_v1.0 [current_project]
+set_property ip_repo_paths {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_codec_ctrl_v1.0}} [current_project]
 update_ip_catalog
-set_property ip_output_repo /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.cache/ip [current_project]
+set_property ip_output_repo {/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/hdl/audio_wrapper.v
-add_files /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.srcs/sources_1/bd/audio/audio.bd
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_processing_system7_0_0/audio_processing_system7_0_0.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_clk_wiz_0_0/audio_clk_wiz_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_clk_wiz_0_0/audio_clk_wiz_0_0.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_clk_wiz_0_0/audio_clk_wiz_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_proc_sys_reset_0_0/audio_proc_sys_reset_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_proc_sys_reset_0_0/audio_proc_sys_reset_0_0.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_proc_sys_reset_0_0/audio_proc_sys_reset_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_0/audio_axi_gpio_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_0/audio_axi_gpio_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_0/audio_axi_gpio_0_0.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_1/audio_axi_gpio_0_1_board.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_1/audio_axi_gpio_0_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_1/audio_axi_gpio_0_1.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_2/audio_axi_gpio_0_2_board.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_2/audio_axi_gpio_0_2_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_2/audio_axi_gpio_0_2.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_3/audio_axi_gpio_0_3_board.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_3/audio_axi_gpio_0_3_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_3/audio_axi_gpio_0_3.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_interconnect_0_upgraded_ipi_imp_xbar_0/audio_axi_interconnect_0_upgraded_ipi_imp_xbar_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_interconnect_0_imp_s00_regslice_0/audio_axi_interconnect_0_imp_s00_regslice_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_interconnect_0_imp_s00_regslice_0/audio_axi_interconnect_0_imp_s00_regslice_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_interconnect_0_imp_auto_pc_0/audio_axi_interconnect_0_imp_auto_pc_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.gen/sources_1/bd/audio/audio_ooc.xdc]
+read_verilog -library xil_defaultlib {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/hdl/audio_wrapper.v}}
+add_files {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.srcs/sources_1/bd/audio/audio.bd}}
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_processing_system7_0_0/audio_processing_system7_0_0.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_interconnect_0_upgraded_ipi_imp_xbar_0/audio_axi_interconnect_0_upgraded_ipi_imp_xbar_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_clk_wiz_0_0/audio_clk_wiz_0_0_board.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_clk_wiz_0_0/audio_clk_wiz_0_0.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_clk_wiz_0_0/audio_clk_wiz_0_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_proc_sys_reset_0_0/audio_proc_sys_reset_0_0_board.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_proc_sys_reset_0_0/audio_proc_sys_reset_0_0.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_proc_sys_reset_0_0/audio_proc_sys_reset_0_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_0/audio_axi_gpio_0_0_board.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_0/audio_axi_gpio_0_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_0/audio_axi_gpio_0_0.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_1/audio_axi_gpio_0_1_board.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_1/audio_axi_gpio_0_1_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_1/audio_axi_gpio_0_1.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_2/audio_axi_gpio_0_2_board.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_2/audio_axi_gpio_0_2_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_2/audio_axi_gpio_0_2.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_3/audio_axi_gpio_0_3_board.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_3/audio_axi_gpio_0_3_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_gpio_0_3/audio_axi_gpio_0_3.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_interconnect_0_imp_s00_regslice_0/audio_axi_interconnect_0_imp_s00_regslice_0_clocks.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_interconnect_0_imp_s00_regslice_0/audio_axi_interconnect_0_imp_s00_regslice_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/ip/audio_axi_interconnect_0_imp_auto_pc_0/audio_axi_interconnect_0_imp_auto_pc_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.gen/sources_1/bd/audio/audio_ooc.xdc}}]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -111,14 +111,14 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/alan/Learning/FPGA/fpgachina/Audio_migrate/vivado/constraints/base.xdc
-set_property used_in_implementation false [get_files /home/alan/Learning/FPGA/fpgachina/Audio_migrate/vivado/constraints/base.xdc]
+read_xdc {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/vivado/constraints/base.xdc}}
+set_property used_in_implementation false [get_files {{/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/vivado/constraints/base.xdc}}]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental /home/alan/Learning/FPGA/fpgachina/Audio_migrate/audio_test/audio_test.srcs/utils_1/imports/synth_1/audio_wrapper.dcp
+read_checkpoint -auto_incremental -incremental {/home/alan/Learning/FPGA/fpgachina/FPGA-HUST-2025/Project Files/basic_overlay/audio_test/audio_test.srcs/utils_1/imports/synth_1/audio_wrapper.dcp}
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
