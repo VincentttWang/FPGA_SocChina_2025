@@ -39,3 +39,15 @@
 
 # debug information files
 *.dwo
+
+# Vivado / FPGA Generated Files
+*.jou
+*.log
+*.str
+.Xil/
+*.gen/
+*.hw/
+*.runs/
+*.ip_user_files/
+*.sim/
+build/
