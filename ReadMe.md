@@ -22,7 +22,7 @@
 
 This project develops an independent, **hardware-software co-designed** high-performance audio processing system leveraging the **AMD PYNQ-Z2** platform. By utilizing **Vitis HLS**, the system implements highly parallel **FFT** and **FIR filter** IP cores, harnessing FPGA hardware acceleration to achieve significant gains in computation speed and throughput.
 
-*本项目利用 **AMD PYNQ-Z2** 平台，构建了一套独立运行、软硬协同的**高性能音频处理系统**。系统通过 **Vitis HLS** 开发了高并行度的 **FFT（快速傅里叶变换）**与 **FIR 滤波器 IP 核**，利用 FPGA 硬件加速显著提升了运算速率与吞吐量。*
+*本项目利用 AMD PYNQ-Z2 平台，构建了一套独立运行、软硬协同的高性能音频处理系统。系统通过 Vitis HLS 开发了高并行度的 FFT（快速傅里叶变换）与 FIR 滤波器 IP 核，利用 FPGA 硬件加速显著提升了运算速率与吞吐量。*
 
 ![PYNQ-Z2](./doc/img/PYNQ-Z2.png)
 
