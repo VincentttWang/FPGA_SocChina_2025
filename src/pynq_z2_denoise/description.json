@@ -1,0 +1,7 @@
+{
+  "name": "pynq_z2_denoise",
+  "description": "The Denoise Overlay for PYNQ-Z2 board",
+  "hls": {
+    "config": "hls_config.cfg"
+  }
+}

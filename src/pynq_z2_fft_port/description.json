@@ -1,0 +1,7 @@
+{
+  "name": "pynq_z2_fft_port",
+  "description": "The FFT Port Overlay for PYNQ-Z2 board",
+  "hls": {
+    "config": "hls_config.cfg"
+  }
+}

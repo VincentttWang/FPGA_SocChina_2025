@@ -1,0 +1,7 @@
+# Pip requirements for Upper.py (macOS/Windows/Linux)
+# If you use conda, prefer: conda install -c conda-forge pyqt pyqtgraph sounddevice
+numpy
+pyqtgraph
+PyQt5
+sounddevice
+

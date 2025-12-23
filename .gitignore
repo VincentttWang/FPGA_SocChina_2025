@@ -51,3 +51,13 @@
 *.ip_user_files/
 *.sim/
 build/
+
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS:
+.DS_Store
+AppleDouble
+LSOverride
