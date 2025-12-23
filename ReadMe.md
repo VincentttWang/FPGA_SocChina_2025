@@ -41,7 +41,7 @@ This project develops an independent, **hardware-software co-designed** high-per
 
 The system adopts a heterogeneous **PS + PL** architecture, leveraging the Zynq-7000 SoC's strengths.
 
-![System Graph](./doc/img/System Graph.png)
+![System Graph](./doc/img/System%20Graph.png)
 
 ------
 
@@ -54,13 +54,13 @@ The Upper Host application (developed in Python/PyQt5) serves as the control cen
     *   **Analysis Tools**: Includes **Peak Detection**, cursor measurement, and adjustable frequency ranges for detailed signal inspection.
     *   **Visualizes** the spectrum in real-time using data streamed via UDP from the PYNQ board.
 
-    ![Pro Mode](./doc/img/Pro Mode.png)
+    ![Pro Mode](./doc/img/Pro%20Mode.png)
 
 2.  **Immersive Visualizer (Immersion Mode)**:
     *   **Dynamic Visuals**: An aesthetic visualization mode designed for music playback.
     *   **Reactive Elements**: Graphical elements react to audio rhythm and intensity, providing an engaging visual experience.
 
-    ![Immersive Mode](./doc/img/Immersive Mode.png)
+    ![Immersive Mode](./doc/img/Immersive%20Mode.png)
 
 3.  **Smart Audio Analysis**:
     *   **Real-time Classification**: Automatically classifies audio scenes based on energy distribution across Bass, Mid, and High frequency bands.
@@ -202,19 +202,19 @@ The Upper Host application (developed in Python/PyQt5) serves as the control cen
 
 #### 4096pt
 
-![4096pt](./notebook/FFT Experiment/result/4096pt.png)
+![4096pt](./notebook/FFT%20Experiment/result/4096pt.png)
 
 #### 8192pt
 
-![8192pt](./notebook/FFT Experiment/result/8192pt.png)
+![8192pt](./notebook/FFT%20Experiment/result/8192pt.png)
 
 #### 16384pt
 
-![16384pt](./notebook/FFT Experiment/result/16384pt.png)
+![16384pt](./notebook/FFT%20Experiment/result/16384pt.png)
 
 #### 65536pt
 
-![65536pt](./notebook/FFT Experiment/result/65536pt.png)
+![65536pt](./notebook/FFT%20Experiment/result/65536pt.png)
 
 ### 📊 Resource Utilization
 
