@@ -85,12 +85,16 @@ The Upper Host application (developed in Python/PyQt5) serves as the control cen
 .
 ├── doc/                        # Documentation and tutorials
 ├── notebook/                   # Main deployment folder (Bitstream, Notebooks)
+│   └── FFT Experiment/         # FFT performance test notebooks
 ├── src/                        # Source code and Vivado projects
 │   ├── basic/                  # Audio codec control IP and basic tests
-│   ├── overlay/                # Vivado build scripts
-│   ├── pynq_z2_denoise/        # Denoise HLS implementation (Source Code)
-│   └── pynq_z2_fft_port/       # FFT HLS implementation (Source Code)
+│   ├── overlay/                # Vivado build scripts for the full system
+│   │   ├── block_design_z2.tcl # Block design Tcl script
+│   │   └── run_vivado_z2.tcl   # Main build script
+│   ├── pynq_z2_denoise/        # Denoise HLS implementation
+│   └── pynq_z2_fft_port/       # FFT HLS implementation
 ├── Upper PC Host/              # PC Host application (Python Visualization)
+│   └── Upper.py                # Main GUI application
 └── README.md
 ```
 
